@@ -1,0 +1,141 @@
+const team = {
+ _players: [
+{fullName: 'Auston Matthews',position: 'Central', actualPoints: 80},
+{fullName: 'Denis Malgin', position: 'Central', actualPoints: 'Rookie'},
+{fullName: 'Frederik Gauthier', position: 'Central', actualPoints: 12},
+{fullName: 'Alexander Kerfoot', position: 'Central', actualPoints: 28},
+{fullName: 'John Tavares', position: 'Central', actualPoints: 60},
+{fullName: 'Jason Spezza', position: 'Central', actualPoints: 25},
+{fullName: 'Rasmus Sandin', position: 'Central', actualPoints: 8},
+{fullName: 'Calle Rosen', position: 'Defense', actualPoints: 1},
+{fullName: 'Travis Dermott', position: 'Defense', actualPoints: 11},
+{fullName: 'Cody Ceci', position: 'Defense', actualPoints: 8},
+{fullName: 'Morgan Rielly', position: 'Defense', actualPoints: 27},
+{fullName: 'Justin Holl', position: 'Defense', actualPoints: 18},
+{fullName: 'Martin Marincin', position: 'Defense', actualPoints: 4},
+{fullName: 'Tyson Barrie', position: 'Defense', actualPoints: 39},
+{fullName: 'Jake Muzzin', position: 'Defense', actualPoints: 23},
+{fullName: 'Pierre Engvall', position: 'Left Wing', actualPoints: 15},
+{fullName: 'Andreas Johnsson', position: 'Left Wing', actualPoints: 21},
+{fullName: 'Zach Hyman', position: 'Left Wing', actualPoints: 37},
+{fullName: 'Kyle Clifford', position: 'Left Wing', actualPoints: 3},
+{fullName: 'LLya Mikhyev', position: 'Right Wing', actualPoints: 23},
+{fullName: 'Mitchell Marner', position: 'Right Wing', actualPoints: 67},
+{fullName: 'Kasperi Kapanen', position: 'Right Wing', actualPoints: 36},
+{fullName: 'William Nylander ',position: 'Right Wing', actualPoints: 59},
+{fullName: 'Frederik Andersen', position: 'Goalie', savePerc: .909}, 
+{fullName: 'Jack Campbell', position: 'Goalie', savePerc: .915}
+],
+ _games: [
+{opponent: 'Tampa Bay', teamPoints: 87, opponentPoints: 92},
+{opponent: 'Anaheim', teamPoints: 89, opponentPoints: 67},
+{opponent: 'Los Angeles', teamPoints: 89, opponentPoints: 64}
+],
+ get players () {
+  return this._players;
+   },
+ get games () {
+  return this._games;
+},   
+  addPlayer(fullName, position, savePerc) {
+  let player = {
+    fullName: fullName,
+    position: position,
+    savePerc: savePerc,
+      };
+  this._players.push(player);
+},
+
+addCoach(fullName, position, wins, loses) {
+  let coach = {
+    fullName: fullName,
+    position: position,
+    wins: wins,
+    loses: loses
+      };
+  this._players.push(coach);
+},
+
+addGame(opp, myPts, oppPts) {
+const game = {
+  opponent: opp,
+  teamPoints: myPts,
+  opponentPoints: oppPts
+}
+this.games.push(game);
+}
+}; 
+
+  team.addPlayer('Tales Pereira', 'Goalie', .897);
+  team.addPlayer('Mauro Pereira', 'Goalie', .790);
+  team.addPlayer('Heitor Pereira', 'Goalie', .854);
+  team.addPlayer('Sylvia Pereira', 'Goalie', 'Rookie');
+
+  team.addGame('Montreal', 91, 77);
+  team.addGame('Ottawa', 93, 57);
+  team.addGame('Boston', 95, 97);
+
+  team.addCoach('Sheldon Keefe', 'Head Coach', 27, 15);
+
+const iceTeam = {
+  _teamOnIce: {
+  central: [],
+  rightWing: [],
+  leftWing: [],
+  defense: [],
+  goalie: [],
+
+get central() {
+  return this._teamOnIce.central;
+},
+get rightWing() {
+  return this._teamOnIce.rightWing;
+},
+get leftWing() {
+  return this._teamOnIce.leftWing;
+},
+get defense() {
+  return this._teamOnIce.defense;
+  },
+get goalie() {
+  return this._teamOnIce.goalie;
+  },
+  set central (central) {
+      this._teamOnIce.central = central;
+  },
+  set rightWing (rightWing) {
+      this._teamOnIce.rightWing = rightWing;
+  },
+  set leftWing (leftWing) {
+      this._teamOnIce.leftWing = leftWing;
+  },
+  set defense (defense) {
+      this._teamOnIce.defense = defense;
+  },
+  set goalie (goalie) {
+      this._teamOnIce.goalie = goalie;
+  },
+
+get teamOnIce () {
+      return {
+central: this.central,
+rightWing: this.rightWing,
+leftWing: this.leftWing,
+defense: this.defense,
+goalie: this.goalie,
+      };
+    },
+
+  addTeamOfCentrals(fullName, position, number) {
+  const teamPlayers = {
+    fullName: fullName,
+    position: position,
+    number: number
+  }
+  return this._teamOnIce.push(teamPlayers);
+ }
+}
+
+iceTeam.addTeamOfCentrals('Auston Matthews', 'Central', 34)
+
+console.log(_teamOnIce)
